@@ -1,7 +1,7 @@
 <script>
+    import Blog from '../components/blog.svelte'
     let scroll
     export let data
-    console.log(data)
 </script>
 
 <svelte:head>
@@ -39,26 +39,13 @@
 </header>
 
 <main>
-    <section id="first-blog" class="first-blog">
-        <article>
-            <h2>{data.dataHygraph.weLoveWebBlogs[0].title}</h2>
-            <p>{data.dataHygraph.weLoveWebBlogs[0].speaker}</p>
-            <p>{data.dataHygraph.weLoveWebBlogs[0].date}</p>
-            <div class="image-container"> 
-                <img src="{data.dataHygraph.weLoveWebBlogs[0].image.url}" alt="Laptop in the jungle.">
-            </div>
-            <p>{data.dataHygraph.weLoveWebBlogs[0].blog.raw.children[0].children[0].text}</p>
-
-        </article> 
-    </section>
-
-
+    <Blog data={data.dataHygraph.weLoveWebBlogs[0]} />
     <section class="second-parallax">
         <div class="second-parallax-first-img" style:transform={`translate3d(0, ${scroll * -0.5}px,0)`}></div>
         <div class="second-parallax-second-img" style:transform={`translate3d(0, ${scroll * -0.3}px,0)`}></div>
         <div class="second-parallax-third-img"></div>
     </section>
-
+    <Blog data={data.dataHygraph.weLoveWebBlogs[1]} />
 </main>
 
 
@@ -190,46 +177,7 @@
     }
 
     /* second part */
-    .first-blog{
-        width:100vw;
-        height: auto;
-        background-color: var(--pink);
-        position: relative;
-        margin-top:0;
-        padding-top:0;
-        color:black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .first-blog h2{
-        margin-left:5vw;
-        margin-top:0rem;
-        padding-top:1rem;
-    }
-    .first-blog p{
-        margin-left:5vw;
-    }
-    article{
-        width:90vw;
-        height:auto;
-        background-color: var(--emerald);
-        border: 3px solid black;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    .image-container{
-        width:80vw;
-        height:28vh;
-        margin-left:5vw;
-        border: 3px solid black;
-    }
-    img {
-        width:100%;
-        height:100%;
-        object-fit: cover;
-
-    }
+   
 
 
 
