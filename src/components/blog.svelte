@@ -3,12 +3,12 @@
     // console.log(data)
 </script>
 
-<section class="first-blog">
+<section>
     <article>
         <h2>{data.title}</h2>
         <p>{data.speaker}</p>
         <p>{data.date}</p>
-        <div class="image-container"> 
+        <div> 
             <img src="{data.image.url}" alt="Laptop in the jungle.">
         </div>
         <p>{data.blog.raw.children[0].children[0].text}</p>
@@ -19,7 +19,7 @@
 
 
 <style>
- .first-blog{
+ section{
         width:100vw;
         height: auto;
         background-color: var(--pink);
@@ -31,12 +31,12 @@
         justify-content: center;
         align-items: center;
     }
-    .first-blog h2{
+    section h2{
         margin-left:5vw;
         margin-top:0rem;
         padding-top:1rem;
     }
-    .first-blog p{
+    section p{
         margin-left:5vw;
         margin-right:5vw;
     }
@@ -48,7 +48,7 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    .image-container{
+    div{
         width:80vw;
         height:28vh;
         margin-left:5vw;
