@@ -1,9 +1,12 @@
 <script>
     let scroll
+    export let data
+    console.log(data)
 </script>
 
 <svelte:head>
     <title>WE LOVE WEB</title>
+    <meta name="description" content="We Love Web Blog">
 </svelte:head>
 
 <svelte:window bind:scrollY={scroll} />
@@ -11,22 +14,45 @@
 <!-- <h1>{scroll}</h1> -->
 <header class="first-parallax">
     <h1>WE LOVE WEB</h1>
-    <div class="first-img" style:transform={`translate3d(0, ${scroll * -0.5}px,0)`}></div>
-    <div class="second-img" style:transform={`translate3d(0, ${scroll * -0.3}px,0)`}></div>
-    <div class="third-img"></div>
+
+    <div class="first-img" style:transform={`translate3d(0, ${scroll * -0.5}px,0)`}>
+        <!-- <img src="/sky.jpg" alt="sky" width="100%" height="100%"> -->
+    </div>
+
+    <div class="second-img" style:transform={`translate3d(0, ${scroll * -0.3}px,0)`}>
+        <!-- <img src="/buildings-smaller.jpg" alt="sky" width="100%" height="100%"> -->
+    </div>
+
+    <div class="third-img">
+        <!-- <img src="/black-code-cat-smaller.jpg" alt="sky" width="100%" height="100%"> -->
+
+    </div>
+
+
     <section class="intro-message">
         <p>Welkom op mijn We love Web blog! Scroll naar onderen om de blogposts te lezen.</p>
     </section>
-    <a href="#first-blog" class="scroll-down" >
+    <section href="#first-blog" class="scroll-down" >
         <p>scroll down</p>
         <p>&#8675;</p>
-    </a>
+    </section>
 </header>
 
 <main>
     <section id="first-blog" class="first-blog">
-        <h3>Welcome to my We Love Web Blog!</h3>
+        <article>
+            <h2>{data.dataHygraph.weLoveWebBlogs[0].title}</h2>
+            <p>{data.dataHygraph.weLoveWebBlogs[0].speaker}</p>
+            <p>{data.dataHygraph.weLoveWebBlogs[0].date}</p>
+            <div class="image-container"> 
+                <img src="{data.dataHygraph.weLoveWebBlogs[0].image.url}" alt="Laptop in the jungle.">
+            </div>
+            <p>{data.dataHygraph.weLoveWebBlogs[0].blog.raw.children[0].children[0].text}</p>
+
+        </article> 
     </section>
+
+
     <section class="second-parallax">
         <div class="second-parallax-first-img" style:transform={`translate3d(0, ${scroll * -0.5}px,0)`}></div>
         <div class="second-parallax-second-img" style:transform={`translate3d(0, ${scroll * -0.3}px,0)`}></div>
@@ -37,10 +63,14 @@
 
 
 
-
 <!-- svelte paralax bron https://www.youtube.com/watch?v=K3CM7j9GIxk -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;800&display=swap');
+
+    :root{
+        --emerald: #34D8AE;
+        --pink: #F739C2;
+    }
 
     :global(html){
         scroll-behavior: smooth;  
@@ -77,11 +107,22 @@
     }
 
 
-    
+    /* Zoek uit hoe je voor performance het beste de img kan weergeven
+    onderstaande wordt niet door veel brouwsers ondersteunt,
+    dus misschien toch beter in HTML doen met srcset etc. */
     .first-img{
-        /* height:100vh; */
-        /* width: 100vw; */
-        background: url('/sky.jpg');
+        background-image: url('/sky-smaller.jpg');
+        /* background-image: image-set(
+            url('/sky-smaller-mobile.webp') 1x,
+            url('/sky-smaller.webp') 2x
+        ); */
+        background-image: image-set(
+            url('/cow.jpg') 1x,
+            url('/sky-smaller.webp') 2x
+        );
+        
+        
+        
         background-repeat: no-repeat;
         background-position: center;
         background-size: 203vh;
@@ -91,18 +132,23 @@
     }
     .second-img{
         /* height:110vh; */
-        background: url('/buildings.png');
+        background-image: url('/buildings-latest.webp');
+        /* background-image: image-set(
+            url('/sky-smaller-mobile.webp') 1x,
+            url('/sky-smaller.webp') 2x
+        ); */
         background-repeat: no-repeat;
         background-position: center;
         background-size: 203vh;
-        top:10rem;
+        top:8rem;
+        overflow: hidden;
         /* z-index: 100; */
         /* transform: translateZ(-10px) scale(2); */
     }
 
     .third-img{
         /* height:110vh; */
-        background: url('/black-code-cat-large-outlined-good.svg');
+        background-image: url('/black-code-cat-latest.webp');
         background-repeat: no-repeat;
         background-position: center;
         background-size: 203vh;
@@ -116,7 +162,7 @@
         margin-left: 5vw;
         z-index: 200;
         color:black;
-        background-color: #34D8AE;
+        background-color: var(--emerald);
         width:90vw;
         height: 10rem;
         border: 3px solid black;
@@ -124,7 +170,7 @@
     .intro-message p{
         margin:1rem;
     }
-    a.scroll-down{
+    section.scroll-down{
         position: absolute;
         top:85vh;
         width:90vw;
@@ -134,13 +180,10 @@
         justify-content: center;
         align-items: center;
         font-size:2.5rem;
-        color:white;
-        -webkit-text-stroke: .1px black;
+        color:var(--emerald);
+        -webkit-text-stroke: 1px black;
         /* background:transparent; */
         /* border:none; */
-    }
-    a.scroll-down:hover{
-        color:#34D8AE;
     }
     .scroll-down p{
         margin: 0rem;
@@ -149,30 +192,60 @@
     /* second part */
     .first-blog{
         width:100vw;
-        height:100vh;
-        background-color: black;
+        height: auto;
+        background-color: var(--pink);
         position: relative;
         margin-top:0;
         padding-top:0;
-        color:white;
+        color:black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .first-blog h3{
+    .first-blog h2{
         margin-left:5vw;
         margin-top:0rem;
         padding-top:1rem;
     }
+    .first-blog p{
+        margin-left:5vw;
+    }
+    article{
+        width:90vw;
+        height:auto;
+        background-color: var(--emerald);
+        border: 3px solid black;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .image-container{
+        width:80vw;
+        height:28vh;
+        margin-left:5vw;
+        border: 3px solid black;
+    }
+    img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+
+    }
+
+
 
 
     /* second parallax */
+    
 
-    .second-parallax-first-img{
+    /* .second-parallax-first-img{
         background: url('/cow.jpg');
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 203vh;
+        background-size: 203vh; */
+        /* background-color: cyan; */
         
 
-    }
+    /* } */
     /* .parallax-container{
         height:100vh;
         overflow-y: auto;
