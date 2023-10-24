@@ -5,6 +5,7 @@
 
     export let data
     let scroll
+
 </script>
 
 <svelte:head>
@@ -18,6 +19,11 @@
     <Blog data={data.dataHygraph.weLoveWebBlogs[0]} />
     <SecondParallax />
     <Blog data={data.dataHygraph.weLoveWebBlogs[1]} />
+<!-- 
+    {#each data.dataHygraph.weLoveWebBlogs.slice(2) as blog (blog.id)}
+        <Blog data={blog} />
+    {/each} -->
+
 </main>
 
 
@@ -25,7 +31,9 @@
 <!-- svelte paralax bron https://www.youtube.com/watch?v=K3CM7j9GIxk -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;800&display=swap');
-
+ /* main{
+    height:600vh
+ } */
     :root{
         --emerald: #34D8AE;
         --pink: #F739C2;
@@ -36,13 +44,11 @@
     }
     :global(body){
         margin: 0rem;
-        height:200vh;
+        /* height:200vh; */
         overflow-y: auto;
         overflow-x: hidden;
         font-family: 'Geologica', sans-serif;
     }
-
-    
 
 
     /* .second-parallax-first-img{

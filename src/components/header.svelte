@@ -23,6 +23,7 @@
 
 
     <section class="intro-message">
+        <h2>Welkom 💖💖💖</h2>
         <p>Welkom op mijn We love Web blog! Scroll naar onderen om de blogposts te lezen.</p>
     </section>
     <section class="scroll-down" >
@@ -116,7 +117,7 @@
         height: 10rem;
         border: 3px solid black;
     }
-    .intro-message p{
+    .intro-message p, .intro-message h2{
         margin:1rem;
     }
     section.scroll-down{
@@ -156,6 +157,10 @@
     }
     .intro-message p{
         margin:1rem;
+    }
+    section.scroll-down{
+        position: absolute;
+        top:80vh;
     }
     }
 

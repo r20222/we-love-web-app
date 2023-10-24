@@ -4,7 +4,7 @@
     // console.log(data.blog.raw.children[0].type)
 </script>
 
-<section>
+<section class="main">
     <article>
         <h2>{data.title}</h2>
         <p>{data.speaker}</p>
@@ -34,13 +34,21 @@
           {/each}
         {/if}
 
+      
     </article> 
+      <!-- desktop -->
+      <section class="desktop-image-background">
+        <section class="desktop-image">
+            <img src="{data.image.url}" alt="{data.imageAlt}" width="100">
+        </section>
+      </section>
+  
 </section>
 
 
 
 <style>
- section{
+ .main{
         width:100vw;
         height: auto;
         background-color: var(--pink);
@@ -52,12 +60,12 @@
         justify-content: center;
         align-items: center;
     }
-    section h2{
+    .main h2{
         margin-left:5vw;
         margin-top:0rem;
         padding-top:1rem;
     }
-    section p{
+    .main p{
         margin-left:5vw;
         margin-right:5vw;
     }
@@ -80,8 +88,56 @@
         height:100%;
         object-fit: cover;
     }
+    .desktop-image{
+        display:none;
+    }
 
     @media screen and (min-width: 1000px){
-        
+        .main{
+            width:100vw;
+            height: auto;
+            background-color: var(--pink);
+            position: relative;
+            margin-top:-.5rem;
+            padding-top:0;
+            color:black;
+            display: grid; /* Change from "flex" to "grid" */
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            justify-content: center;
+            align-items: center;
+        }
+        article{
+            width:40vw;
+            height:auto;
+            background-color: var(--emerald);
+            border: 3px solid black;
+            margin: 2rem;
+        }
+        div{
+                display: none;
+            }
+        .desktop-image{
+            display: block;
+            width:100%;
+            /* height:100%; */
+            display: flex;
+            justify-content: center;
+        }
+        .desktop-image-background{
+            width:100%;
+            height:100%;
+            display: flex;
+            align-items: center;
+            background-image: 
+            linear-gradient(
+            to top right in oklab, 
+            #34D8AE 0%, var(--pink) 0% 20%, #34D8AE 0% 40%, var(--pink) 0% 60%, #34D8AE 0% 80%, var(--pink) 0% 100%
+            );
+            border-left:3px solid black;
+        }
+        img{
+            width:30vw;
+            border: 3px solid black;
+        }
     }
 </style>
