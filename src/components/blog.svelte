@@ -80,4 +80,8 @@
         height:100%;
         object-fit: cover;
     }
+
+    @media screen and (min-width: 1000px){
+        
+    }
 </style>

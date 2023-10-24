@@ -26,8 +26,8 @@
         <p>Welkom op mijn We love Web blog! Scroll naar onderen om de blogposts te lezen.</p>
     </section>
     <section class="scroll-down" >
-        <p>scroll down</p>
-        <p>&#8675;</p>
+            <p>scroll down</p>
+            <p>&#8675;</p>
     </section>
 </header>
 
@@ -136,6 +136,27 @@
     }
     .scroll-down p{
         margin: 0rem;
+        background-color: rgba(0, 0, 0, .9);
+
+    }
+
+    @media screen and (min-width:1000px){
+          /* intro message */
+    .intro-message{
+        position: absolute;
+        top:20vh;
+        right:5vw;
+        margin-left: 5vw;
+        z-index: 200;
+        color:black;
+        background-color: var(--emerald);
+        width:30vw;
+        height: 50vh;
+        border: 3px solid black;
+    }
+    .intro-message p{
+        margin:1rem;
+    }
     }
 
 </style>
