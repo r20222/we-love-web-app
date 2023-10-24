@@ -5,18 +5,33 @@
  <svelte:window bind:scrollY={scroll} />
  
 
-<section class="second-parallax">
-    <div class="second-parallax-first-img" style:transform={`translate3d(0, ${scroll * -0.5}px,0)`}></div>
-    <div class="second-parallax-second-img" style:transform={`translate3d(0, ${scroll * -0.3}px,0)`}></div>
-    <div class="second-parallax-third-img"></div>
+<section>
+    <img src="/space-landscape.jpg" alt="Space landscape" class="background">
+    <img src="/single-cow.png" alt="cow" class="cow" style:transform={`translate3d(${scroll * 0.3}px, 0, 0)`}>
 </section>
 
+
+
 <style>
-    .second-parallax{
-        width:100vw;
-        height:100vh;
-        background-image: url('/cow.jpg');
-        background-size: 100%;
+    section{
         overflow: hidden;
+        width:100%;
+        height:auto;
+        object-fit: cover;
+        background-repeat: no-repeat;
+    }
+    .background{
+        width: 100%;
+        position: relative;
+    }
+    .cow{
+       width: 100%;
+       position: absolute;
+       left:-110%;
+    }
+    @media screen and (min-width: 600px){
+        .cow{
+            left:-80%;
+        }
     }
 </style>

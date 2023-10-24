@@ -45,7 +45,7 @@
         height: auto;
         background-color: var(--pink);
         position: relative;
-        margin-top:0;
+        margin-top:-.5rem;
         padding-top:0;
         color:black;
         display: flex;
