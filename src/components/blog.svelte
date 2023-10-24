@@ -119,7 +119,6 @@
         .desktop-image{
             display: block;
             width:100%;
-            /* height:100%; */
             display: flex;
             justify-content: center;
         }
@@ -138,6 +137,11 @@
         img{
             width:30vw;
             border: 3px solid black;
+        }
+
+        /* list */
+        ul{
+            padding-left:7rem;
         }
     }
 </style>
