@@ -14,6 +14,7 @@ export async function load() {
         image {
           url
         }
+        imageAlt
         blog {
           raw
         }

@@ -1,6 +1,7 @@
 <script>
     export let data
-    // console.log(data)
+    console.log(data)
+    // console.log(data.blog.raw.children[0].type)
 </script>
 
 <section>
@@ -9,9 +10,29 @@
         <p>{data.speaker}</p>
         <p>{data.date}</p>
         <div> 
-            <img src="{data.image.url}" alt="Laptop in the jungle.">
+            <img src="{data.image.url}" alt="{data.imageAlt}">
         </div>
-        <p>{data.blog.raw.children[0].children[0].text}</p>
+
+        <!-- Blog text and lists -->
+        {#if data.blog.raw.children}     
+          {#each data.blog.raw.children as section}
+
+            <!-- paragraph -->
+            {#if section.type === "paragraph"}
+                <p>{section.children[0].text}</p>
+            {/if}
+
+            <!-- list -->
+            {#if section.type === "bulleted-list"}
+                <ul>
+                    {#each section.children as listItem}
+                        <li>{listItem.children[0].children[0].text}</li>
+                    {/each}
+                </ul>
+            {/if}
+
+          {/each}
+        {/if}
 
     </article> 
 </section>
@@ -59,6 +80,4 @@
         height:100%;
         object-fit: cover;
     }
-
-
 </style>
