@@ -1,9 +1,8 @@
 <script>
-    import Blog from '../components/blog.svelte'
     import Header from '../components/header.svelte'
     import ChooseBlog from '../components/choose-blog.svelte'
+    import Footer from '../components/footer.svelte'
 
-    import SecondParallax from '../components/secondParallax.svelte'
 
     export let data
     let scroll
@@ -17,6 +16,7 @@
 
 <Header />
 <ChooseBlog data={data} />
+<Footer />
 
 
 <main>
