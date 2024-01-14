@@ -9,6 +9,7 @@
         background-color: var(--pink);
         display:flex;
         align-items: center;
+        border-bottom: 3px solid black;
     }
     a{
         text-decoration: none;
