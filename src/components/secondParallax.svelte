@@ -19,6 +19,7 @@
         height:auto;
         object-fit: cover;
         background-repeat: no-repeat;
+        background-color: var(--pink);
     }
     .background{
         width: 100%;

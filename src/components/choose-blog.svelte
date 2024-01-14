@@ -9,11 +9,15 @@
     {#each data.dataHygraph.weLoveWebBlogs.slice(0, 3) as blog}
             <a href="/{blog.slug}">{blog.title}</a>
     {/each}
+    </section>
     <SecondParallax />
-    {#each data.dataHygraph.weLoveWebBlogs.slice(3) as blog}
+    <section>
+        {#each data.dataHygraph.weLoveWebBlogs.slice(3) as blog}
             <a href="/{blog.slug}">{blog.title}</a>
-    {/each}
-</section>
+        {/each}
+    </section>
+    
+
 
 <style>
     section{
