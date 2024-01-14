@@ -7,12 +7,15 @@
     console.log(data)
     // console.log(data.blog.raw.children[0].type)
 </script>
-
+<svelte:head>
+    <title>WE LOVE WEB</title>
+    <meta name="description" content="We Love Web Blog">
+</svelte:head>
 <Navigation />
 <section>
     <img src="{data.blog.image.url}" alt="{data.blog.imageAlt}">
     <h1>{data.blog.title}</h1>
-    <h2>{data.blog.speaker}</h2>
+    <h2>Spreker: {data.blog.speaker}</h2>
     <h3>Datum: {data.blog.date}</h3>
     <article>
             <!-- Blog text and lists -->
@@ -61,6 +64,9 @@
         width:80vw;
         margin-top:2rem;
         border:3px solid black;
+    }
+    h1{
+        font-size:1.7rem;
     }
     article{
         width:80vw;
