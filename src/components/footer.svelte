@@ -10,6 +10,7 @@
         background-color: var(--emerald);
         padding-top:2rem;
         padding-bottom: 5rem;
+        border-top:3px solid black;
     }
     h3{
         margin-top:0;
@@ -26,4 +27,24 @@
         background-color: var(--pink);
         border: 3px solid black;
     }
+
+    @media screen and (min-width: 1000px){
+        a{
+        text-decoration: none;
+        display: block;
+        max-width:30rem;
+        font-size:1.5rem;
+        padding: 1rem;
+        margin:1rem 5vw;
+        color:black;
+        background-color: var(--pink);
+        border: 3px solid black;
+        transition: .1s;
+    }
+    a:hover{
+        scale:1.05;
+        transition: .1s;
+    }
+    }
+
 </style>
