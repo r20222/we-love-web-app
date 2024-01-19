@@ -23,7 +23,7 @@ export async function load() {
     `
    
     const dataHygraph = await hygraph.request(query) 
-    console.log(dataHygraph)
+    // console.log(dataHygraph)
     return {dataHygraph}
     
     

@@ -1,7 +1,8 @@
 <script>
-    import Blog from '../components/blog.svelte'
     import Header from '../components/header.svelte'
-    import SecondParallax from '../components/secondParallax.svelte'
+    import ChooseBlog from '../components/choose-blog.svelte'
+    import Footer from '../components/footer.svelte'
+
 
     export let data
     let scroll
@@ -14,16 +15,19 @@
 </svelte:head>
 
 <Header />
+<ChooseBlog data={data} />
+<Footer />
+
 
 <main>
-    <Blog data={data.dataHygraph.weLoveWebBlogs[0]} />
+    <!-- <Blog data={data.dataHygraph.weLoveWebBlogs[0]} />
     <SecondParallax />
-    <Blog data={data.dataHygraph.weLoveWebBlogs[1]} />
+    <Blog data={data.dataHygraph.weLoveWebBlogs[1]} /> -->
 <!-- 
     {#each data.dataHygraph.weLoveWebBlogs.slice(2) as blog (blog.id)}
         <Blog data={blog} />
     {/each} -->
-
+<!-- <a href="/blog">Blog</a> -->
 </main>
 
 
@@ -49,64 +53,5 @@
         overflow-x: hidden;
         font-family: 'Geologica', sans-serif;
     }
-
-
-    /* .second-parallax-first-img{
-        background: url('/cow.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 203vh; */
-        /* background-color: cyan; */
-        
-
-    /* } */
-    /* .parallax-container{
-        height:100vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        perspective:10px;
-    }
-    header{
-        position: relative;
-        display:flex;
-        justify-content: center;
-        align-items:center;
-        height:100%;
-        transform-style: preserve-3d;
-        z-index: -1;
-    }
-    .first-img, .second-img, .third-img{
-        position: absolute;
-        height:150%;
-        width:100%;
-        object-fit: cover;
-        /* om tekst zichtbaar te maken */
-        /* z-index: -1;
-    }
-    .first-img{
-        height:100vh;
-        width: 100vw;
-        background: url('/sky.jpg');
-        background-position: center;
-        background-size: 100%;
-        transform: translateZ(-15px) scale(2.5);
-
-    }
-    .second-img{
-        height:100vh;
-        background: url('/buildings.png');
-        background-position: center;
-        background-size: 100%;
-        /* z-index: 100; */
-        /* transform: translateZ(-10px) scale(2);
-    }
-    .third-img{
-        height:100vh;
-        background: url('/black-code-cat-large-outlined-good.svg');
-        background-position: center;
-        background-size: 100%;
-        z-index: 100;
-    }   */
-
 
 </style>

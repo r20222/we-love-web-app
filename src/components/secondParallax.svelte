@@ -7,7 +7,7 @@
 
 <section>
     <img src="/space-landscape.jpg" alt="Space landscape" class="background">
-    <img src="/single-cow.png" alt="cow" class="cow" style:transform={`translate3d(${scroll * 0.3}px, 0, 0)`}>
+    <img src="/single-cow.png" alt="cow" class="cow" style:transform={`translate3d(${scroll * 0.3}px, 0, 0)`} >
 </section>
 
 
@@ -19,6 +19,7 @@
         height:auto;
         object-fit: cover;
         background-repeat: no-repeat;
+        background-color: var(--pink);
     }
     .background{
         width: 100%;
