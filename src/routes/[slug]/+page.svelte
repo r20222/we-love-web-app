@@ -12,11 +12,14 @@
     <meta name="description" content="We Love Web Blog">
 </svelte:head>
 <Navigation />
-<section>
+<section class="complete-article">
     <img src="{data.blog.image.url}" alt="{data.blog.imageAlt}">
-    <h1>{data.blog.title}</h1>
-    <h2>Spreker: {data.blog.speaker}</h2>
-    <h3>Datum: {data.blog.date}</h3>
+    <section class="article-intro">
+        <h1>{data.blog.title}</h1>
+        <h2>Spreker: {data.blog.speaker}</h2>
+        <h3>Datum: {data.blog.date}</h3>
+    </section>
+    
     <article>
             <!-- Blog text and lists -->
         {#if data.blog.blog.raw.children}     
@@ -47,7 +50,7 @@
 <Footer />
 
 <style>
- section{
+ .complete-article{
         width:100vw;
         height: auto;
         background-image: 
@@ -70,7 +73,7 @@
     }
     article{
         width:80vw;
-        background-color: var(--pink);
+        background-color: var(--emerald);
         padding:1rem;
         border: 3px solid black;
         margin-bottom:4rem;
