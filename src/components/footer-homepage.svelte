@@ -15,8 +15,7 @@
 		border-top: 3px solid black;
 	}
     section{
-        max-width: 80vw;
-        margin: auto;
+        margin: 1rem 5vw;
     }
 	h3 {
 		margin-top: 0;
@@ -44,7 +43,11 @@
 			background-color: var(--pink);
 			border: 3px solid black;
 			transition: 0.1s;
+            margin: 1rem 1rem;
 		}
+        h3{
+            margin-left:1rem;
+        }
 		a:hover {
 			scale: 1.05;
 			transition: 0.1s;
