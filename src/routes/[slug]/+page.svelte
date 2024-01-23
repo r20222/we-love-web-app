@@ -13,38 +13,42 @@
 </svelte:head>
 <Navigation />
 <section class="complete-article">
-    <img src="{data.blog.image.url}" alt="{data.blog.imageAlt}">
-    <section class="article-intro">
-        <h1>{data.blog.title}</h1>
-        <h2>Spreker: {data.blog.speaker}</h2>
-        <h3>Datum: {data.blog.date}</h3>
-    </section>
+        <img class="mobile-img" src="{data.blog.image.url}" alt="{data.blog.imageAlt}">
+        <section class="article-intro">
+            <h1>{data.blog.title}</h1>
+            <h2>Spreker: {data.blog.speaker}</h2>
+            <h3>Datum: {data.blog.date}</h3>
+        </section>
     
+<div class="desktop-layout">
     <article>
-            <!-- Blog text and lists -->
-        {#if data.blog.blog.raw.children}     
-            {#each data.blog.blog.raw.children as section}
+        <!-- Blog text and lists -->
+    {#if data.blog.blog.raw.children}     
+        {#each data.blog.blog.raw.children as section}
 
-            <!-- paragraph -->
-            {#if section.type === "paragraph"}
-                <p>{section.children[0].text}</p>
-            {/if}
-
-            <!-- list -->
-            {#if section.type === "bulleted-list"}
-                <ul>
-                    {#each section.children as listItem}
-                        <li>{listItem.children[0].children[0].text}</li>
-                    {/each}
-                </ul>
-            {/if}
-
-            {/each}
+        <!-- paragraph -->
+        {#if section.type === "paragraph"}
+            <p>{section.children[0].text}</p>
         {/if}
 
-    </article>
+        <!-- list -->
+        {#if section.type === "bulleted-list"}
+            <ul>
+                {#each section.children as listItem}
+                    <li>{listItem.children[0].children[0].text}</li>
+                {/each}
+            </ul>
+        {/if}
+
+        {/each}
+    {/if}
+
+</article>
+<img class="desktop-img" src="{data.blog.image.url}" alt="{data.blog.imageAlt}">
 
 
+</div>
+    
 </section>
 
 <Footer />
@@ -63,10 +67,16 @@
         /* justify-content: center; */
         align-items: center;
     }
+    .article-intro{
+        width:80vw;
+    }
     img{
         width:80vw;
         margin-top:2rem;
         border:3px solid black;
+    }
+    .desktop-img{
+        display: none;
     }
     h1{
         font-size:1.7rem;
@@ -74,9 +84,57 @@
     article{
         width:80vw;
         background-color: var(--emerald);
-        padding:1rem;
         border: 3px solid black;
         margin-bottom:4rem;
+    }
+    p{
+        padding: 1rem;
+    }
+
+
+    @media screen and (min-width: 900px){
+        /* .desktop-layout{
+            display: flex;
+            flex-direction: row-reverse;
+            width:100vw;    
+            margin-bottom: 5rem;
+        }
+        img{
+            width:30vw;
+            margin-top:2rem;
+            border:3px solid black;
+            margin-right:10vw;
+        }
+        .article-intro{
+            margin-left: 10vw;
+            justify-self: end;
+            align-self: end;
+        } */
+        .mobile-img{
+            display: none;
+        }
+        .desktop-img{
+            display: block;
+        }
+        .desktop-layout{
+            display: flex;
+            justify-content: space-between;
+            width: 80vw;
+            margin-bottom: 5rem;
+        }
+        img{
+            width:38vw;
+            height:38vw;
+            margin-top:0rem;
+            border:3px solid black;
+            margin-right:0vw;
+        }
+        article{
+            width:38vw;
+            background-color: var(--emerald);
+            border: 3px solid black;
+            margin-bottom:4rem;
+        }
     }
 </style>
 

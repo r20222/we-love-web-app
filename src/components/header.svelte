@@ -24,7 +24,7 @@
 
     <section class="intro-message">
         <h2>Welkom 💖💖💖</h2>
-        <p>Welkom op mijn We love Web blog! Scroll naar onderen om de blogposts te lezen.</p>
+        <p>Welkom op mijn We love Web blog! Scroll naar onderen en kies een blogpost om te lezen.</p>
     </section>
     <section class="scroll-down" >
             <p>scroll down</p>

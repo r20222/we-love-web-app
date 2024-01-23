@@ -1,7 +1,7 @@
 <script>
     import Header from '../components/header.svelte'
     import ChooseBlog from '../components/choose-blog.svelte'
-    import Footer from '../components/footer.svelte'
+    import Footer from '../components/footer-homepage.svelte'
 
 
     export let data
@@ -35,9 +35,7 @@
 <!-- svelte paralax bron https://www.youtube.com/watch?v=K3CM7j9GIxk -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;800&display=swap');
- /* main{
-    height:600vh
- } */
+ 
     :root{
         --emerald: #34D8AE;
         --pink: #F739C2;
